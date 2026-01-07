@@ -68,21 +68,45 @@ export function CriarRachaForm() {
         </div>
       </div>
 
-      {/* Valor por Pessoa */}
+      {/* Aluguel - Valor da hora e quantidade de horas */}
       <div>
-        <label htmlFor="valor_pessoa" className="block text-sm font-medium text-zinc-300">
-          Valor por Pessoa (R$) *
-        </label>
-        <input
-          id="valor_pessoa"
-          name="valor_pessoa"
-          type="number"
-          required
-          min="0"
-          step="0.50"
-          className="mt-2 w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-3 text-white placeholder-zinc-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
-          placeholder="ex: 30.00"
-        />
+        <p className="block text-sm font-medium text-zinc-300 mb-4">Aluguel do Campo/Quadra</p>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="valor_hora_aluguel" className="block text-sm font-medium text-zinc-300">
+              Valor da Hora (R$) *
+            </label>
+            <input
+              id="valor_hora_aluguel"
+              name="valor_hora_aluguel"
+              type="number"
+              required
+              min="0"
+              step="0.50"
+              className="mt-2 w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-3 text-white placeholder-zinc-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+              placeholder="ex: 100.00"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="quantidade_horas" className="block text-sm font-medium text-zinc-300">
+              Quantidade de Horas *
+            </label>
+            <input
+              id="quantidade_horas"
+              name="quantidade_horas"
+              type="number"
+              required
+              min="0.5"
+              step="0.5"
+              className="mt-2 w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-3 text-white placeholder-zinc-500 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+              placeholder="ex: 2"
+            />
+          </div>
+        </div>
+        <p className="mt-2 text-xs text-zinc-400">
+          Custo total: (Valor da Hora × Quantidade de Horas)
+        </p>
       </div>
 
       {/* Chave Pix */}
