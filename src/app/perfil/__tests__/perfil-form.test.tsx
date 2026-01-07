@@ -21,7 +21,6 @@ describe('PerfilForm', () => {
     )
 
     expect(screen.getByLabelText(/nome completo/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/posição/i)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /criar perfil/i })).toBeInTheDocument()
   })
 
@@ -39,9 +38,7 @@ describe('PerfilForm', () => {
     fireEvent.change(screen.getByLabelText(/nome completo/i), {
       target: { value: 'João Silva' },
     })
-    fireEvent.change(screen.getByLabelText(/posição/i), {
-      target: { value: 'meia' },
-    })
+    // Campo de posição removido
 
     fireEvent.click(screen.getByRole('button', { name: /criar perfil/i }))
 
@@ -64,9 +61,7 @@ describe('PerfilForm', () => {
     fireEvent.change(screen.getByLabelText(/nome completo/i), {
       target: { value: 'Maria Silva' },
     })
-    fireEvent.change(screen.getByLabelText(/posição/i), {
-      target: { value: 'atacante' },
-    })
+    // Campo de posição removido
 
     fireEvent.click(screen.getByRole('button', { name: /criar perfil/i }))
 
@@ -91,9 +86,7 @@ describe('PerfilForm', () => {
     fireEvent.change(screen.getByLabelText(/nome completo/i), {
       target: { value: 'Ana Silva' },
     })
-    fireEvent.change(screen.getByLabelText(/posição/i), {
-      target: { value: 'zagueiro' },
-    })
+    // Campo de posição removido
 
     const button = screen.getByRole('button', { name: /criar perfil/i })
     fireEvent.click(button)

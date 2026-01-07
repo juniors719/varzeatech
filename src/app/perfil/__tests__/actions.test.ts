@@ -27,7 +27,7 @@ describe("salvarPerfil", () => {
     formData.set("userId", "user-123");
     formData.set("nome", "João Silva");
     formData.set("apelido", "João");
-    formData.set("posicao", "meia");
+    // Campo de posição removido do formulário
     formData.set("foto_url", "https://example.com/avatar.jpg");
 
     const result = await salvarPerfil(formData);
@@ -38,7 +38,7 @@ describe("salvarPerfil", () => {
       p_full_name: "João Silva",
       p_nickname: "João",
       p_avatar_url: "https://example.com/avatar.jpg",
-      p_position: "meia",
+      p_position: null,
     });
     expect(revalidatePath).toHaveBeenCalledWith("/perfil");
     expect(revalidatePath).toHaveBeenCalledWith("/dashboard");
@@ -55,7 +55,7 @@ describe("salvarPerfil", () => {
     formData.set("userId", "user-123");
     formData.set("nome", "João Silva");
     formData.set("apelido", "");
-    formData.set("posicao", "meia");
+    // Campo de posição removido do formulário
     formData.set("foto_url", "");
 
     const result = await salvarPerfil(formData);

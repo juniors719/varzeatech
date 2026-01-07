@@ -3,14 +3,6 @@
 import { useState } from 'react'
 import { salvarPerfil } from './actions'
 
-const POSICOES = [
-  { value: 'goleiro', label: '🧤 Goleiro' },
-  { value: 'zagueiro', label: '🛡️ Zagueiro' },
-  { value: 'lateral', label: '↔️ Lateral' },
-  { value: 'meia', label: '🎯 Meia' },
-  { value: 'atacante', label: '⚡ Atacante' },
-]
-
 interface PerfilFormProps {
   userId: string
   email: string
@@ -93,26 +85,7 @@ export function PerfilForm({ userId, email, perfilExistente }: PerfilFormProps) 
           />
         </div>
 
-        {/* Posição Preferida */}
-        <div>
-          <label htmlFor="posicao" className="block text-sm font-medium text-zinc-300">
-            Posição Preferida *
-          </label>
-          <select
-            id="posicao"
-            name="posicao"
-            required
-            defaultValue={perfilExistente?.position}
-            className="mt-2 w-full rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-3 text-white focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
-          >
-            <option value="">Selecione uma posição</option>
-            {POSICOES.map((pos) => (
-              <option key={pos.value} value={pos.value}>
-                {pos.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Campo de posição removido */}
 
         {/* URL da Foto */}
         <div>

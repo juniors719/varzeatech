@@ -60,8 +60,6 @@ export async function deletarRacha(rachaId: string) {
     return { error: "Usuário não autenticado" };
   }
 
-  console.log("Deletando racha:", rachaId, "por usuário:", user.id);
-
   // Buscar racha para verificar se é o criador
   const { data: racha, error: rachaError } = await supabase
     .from("matches")
@@ -85,7 +83,6 @@ export async function deletarRacha(rachaId: string) {
   }
 
   // Deletar match_players relacionados primeiro
-  console.log("Deletando match_players do racha:", rachaId);
   const { data: deletedPlayers, error: deletePlayersError } = await supabase
     .from("match_players")
     .delete()
@@ -99,10 +96,7 @@ export async function deletarRacha(rachaId: string) {
     };
   }
 
-  console.log("Match players deletados:", deletedPlayers?.length || 0);
-
   // Deletar o racha
-  console.log("Deletando match:", rachaId);
   const { data: deletedMatch, error: deleteError } = await supabase
     .from("matches")
     .delete()
@@ -113,8 +107,6 @@ export async function deletarRacha(rachaId: string) {
     console.error("Erro ao deletar racha:", deleteError);
     return { error: `Erro ao deletar racha: ${deleteError.message}` };
   }
-
-  console.log("Racha deletado com sucesso:", deletedMatch);
 
   // Revalidar todo o cache
   revalidatePath("/", "layout");

@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import type { Match } from '@/types/match'
 
 interface RachaCardProps {
-  match: any
+  match: Match
   userId: string
   isCreator: boolean
 }

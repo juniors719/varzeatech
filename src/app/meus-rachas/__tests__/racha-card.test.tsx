@@ -1,13 +1,18 @@
 import { render, screen } from '@testing-library/react'
 import { RachaCard } from '@/app/meus-rachas/racha-card'
+import type { Match } from '@/types/match'
 
 // Mock do Next.js Link
 jest.mock('next/link', () => {
-  return ({ children, href }: any) => <a href={href}>{children}</a>
+  const MockLink = ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  )
+  MockLink.displayName = 'Link'
+  return MockLink
 })
 
 describe('RachaCard', () => {
-  const mockMatch = {
+  const mockMatch: Match = {
     id: '123',
     location: 'Campo da Vila',
     match_date: new Date(Date.now() + 86400000).toISOString(), // amanhã

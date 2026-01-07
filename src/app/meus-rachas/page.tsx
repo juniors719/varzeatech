@@ -60,7 +60,7 @@ export default async function MeusRachasPage() {
   const createdIds = new Set(createdMatches?.map(m => m.id) || [])
   const allMatches = [
     ...(createdMatches || []),
-    ...(joinedMatches?.map(j => j.matches).filter(m => !createdIds.has(m.id)) || [])
+    ...(joinedMatches?.flatMap(j => j.matches).filter(m => !createdIds.has(m.id)) || [])
   ]
 
   return (

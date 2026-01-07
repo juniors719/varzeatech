@@ -9,7 +9,6 @@ export async function salvarPerfil(formData: FormData) {
   const userId = formData.get("userId") as string;
   const nome = formData.get("nome") as string;
   const apelido = formData.get("apelido") as string;
-  const posicao = formData.get("posicao") as string;
   const fotoUrl = formData.get("foto_url") as string;
 
   // Chamar função RPC ao invés de fazer upsert direto
@@ -18,7 +17,8 @@ export async function salvarPerfil(formData: FormData) {
     p_full_name: nome,
     p_nickname: apelido || null,
     p_avatar_url: fotoUrl || null,
-    p_position: posicao,
+    // Campo removido do formulário; enviaremos null para manter compatibilidade da RPC
+    p_position: null,
   });
 
   if (error) {
