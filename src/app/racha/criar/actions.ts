@@ -19,8 +19,12 @@ export async function criarRacha(formData: FormData) {
   const local = formData.get("local") as string;
   const data = formData.get("data") as string;
   const hora = formData.get("hora") as string;
-  const valorHoraAluguel = parseFloat(formData.get("valor_hora_aluguel") as string);
-  const quantidadeHoras = parseFloat(formData.get("quantidade_horas") as string);
+  const valorHoraAluguel = parseFloat(
+    formData.get("valor_hora_aluguel") as string
+  );
+  const quantidadeHoras = parseFloat(
+    formData.get("quantidade_horas") as string
+  );
   const pixKey = formData.get("pix_key") as string;
 
   // Calcular custo total do aluguel

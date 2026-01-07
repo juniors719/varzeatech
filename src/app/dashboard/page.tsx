@@ -188,11 +188,14 @@ export default async function DashboardPage() {
               <p className="text-xs text-zinc-400 mt-1">Organize uma partida</p>
             </Link>
 
-            <button className="rounded-2xl border-2 border-dashed border-blue-500/50 bg-blue-500/5 p-6 hover:border-blue-500 hover:bg-blue-500/10 transition-all group">
+            <Link
+              href="/meus-rachas"
+              className="rounded-2xl border-2 border-dashed border-blue-500/50 bg-blue-500/5 p-6 hover:border-blue-500 hover:bg-blue-500/10 transition-all group"
+            >
               <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">📋</div>
               <p className="font-bold text-blue-400">Meus Rachas</p>
               <p className="text-xs text-zinc-400 mt-1">Veja seus eventos</p>
-            </button>
+            </Link>
 
             <button className="rounded-2xl border-2 border-dashed border-purple-500/50 bg-purple-500/5 p-6 hover:border-purple-500 hover:bg-purple-500/10 transition-all group">
               <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">🏆</div>

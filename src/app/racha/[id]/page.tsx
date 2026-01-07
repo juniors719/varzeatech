@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import Link from 'next/link'
 import { ConfirmarPresencaButton } from './confirmar-presenca'
 import { CopyPixButton } from './copy-pix-button'
+import { DeleteRachaButton } from './delete-racha-button'
 
 interface RachaPageProps {
   params: Promise<{
@@ -90,12 +91,15 @@ export default async function RachaPage({ params }: RachaPageProps) {
                 {matchDate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
               </p>
             </div>
-            <Link
-              href="/dashboard"
-              className="text-sm text-zinc-400 hover:text-white transition-colors"
-            >
-              ← Voltar
-            </Link>
+            <div className="flex items-center gap-3">
+              <DeleteRachaButton rachaId={id} isCreator={racha.created_by === user.id} />
+              <Link
+                href="/dashboard"
+                className="text-sm text-zinc-400 hover:text-white transition-colors"
+              >
+                ← Voltar
+              </Link>
+            </div>
           </div>
         </div>
       </header>
